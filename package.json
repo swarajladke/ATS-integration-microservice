@@ -1,0 +1,30 @@
+{
+  "name": "ats-integration-microservice",
+  "version": "1.0.0",
+  "description": "Serverless ATS Integration Microservice",
+  "main": "index.js",
+  "scripts": {
+    "start": "serverless offline",
+    "deploy": "serverless deploy",
+    "deploy:prod": "serverless deploy --stage prod",
+    "remove": "serverless remove",
+    "logs:jobs": "serverless logs -f getJobs -t",
+    "logs:candidates": "serverless logs -f createCandidate -t",
+    "logs:applications": "serverless logs -f getApplications -t"
+  },
+  "keywords": [
+    "ats",
+    "serverless",
+    "lambda",
+    "greenhouse",
+    "hiring",
+    "recruitment"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless": "^3.38.0",
+    "serverless-offline": "^13.3.0",
+    "serverless-python-requirements": "^6.0.1"
+  }
+}
