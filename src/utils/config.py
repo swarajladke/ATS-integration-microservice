@@ -8,7 +8,7 @@ from typing import Optional
 from dotenv import load_dotenv
 
 # Load environment variables from .env file for local development
-load_dotenv()
+load_dotenv(override=True)
 
 
 class Config:
@@ -28,7 +28,8 @@ class Config:
         self._workable_api_key: Optional[str] = os.getenv("WORKABLE_API_KEY")
         self._workable_subdomain: Optional[str] = os.getenv("WORKABLE_SUBDOMAIN")
         
-        self._ats_base_url: str = os.getenv("ATS_BASE_URL", self._get_default_base_url())
+        ats_base_url = os.getenv("ATS_BASE_URL")
+        self._ats_base_url: str = ats_base_url if ats_base_url else self._get_default_base_url()
         self._log_level: str = os.getenv("LOG_LEVEL", "INFO").upper()
     
     def _get_default_base_url(self) -> str:
